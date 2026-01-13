@@ -1,0 +1,613 @@
+@charset "UTF-8";
+
+.wrapper {
+  max-width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* セクションタイトル */
+.section-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  position: relative;
+}
+.section-title span {
+  max-width: 1000px;
+  display: block;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.section-title::before {
+  content: "";
+  width: calc((100% - 1000px) / 2);
+  height: 1px;
+  background-color: #1f1f1f;
+  position: absolute;
+  top: 12px;
+  left: 0;
+}
+
+/*-------------------------------------------
+メニュー
+-------------------------------------------*/
+.pagelink-list {
+  display: flex;
+  margin-bottom: 80px;
+}
+.pagelink-list li {
+  width: calc(100% / 5);
+  border-left: solid 1px #1f1f1f;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+}
+.pagelink-list li:last-child {
+  border-right: solid 1px #1f1f1f;
+}
+.pagelink-list li::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #1f1f1f;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+}
+.pagelink-list li a {
+  display: block;
+}
+
+/*-------------------------------------------
+Philosophy
+-------------------------------------------*/
+#philosophy {
+  margin-bottom: 120px;
+  overflow: hidden;
+  position: relative;
+}
+#philosophy .img-top {
+  width: clamp(390px, 50vw, 460px);
+  position: absolute;
+  top: 70px;
+  left: 50%;
+}
+/* 四辺をぼかす（ビネット） */
+#philosophy .img-top img,
+#philosophy .img-bottom img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* 中央を残して四辺を透明にフェード（数値でフェード幅を調整） */
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+#philosophy .text-area {
+  width: 70%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(247, 242, 232, 0.9) 100%);
+  padding: 7% 0 10% 6%;
+  margin-top: 120px;
+  border: 1px solid rgba(190, 160, 110, 0.28);
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7),
+              0 0 14px rgba(220, 190, 130, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+#philosophy .text-area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.22), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.14), transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+#philosophy .text-area::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.7), transparent);
+  box-shadow: 0 0 12px rgba(220, 190, 130, 0.4);
+  pointer-events: none;
+  z-index: 1;
+}
+#philosophy .text-area .inner {
+  width: clamp(250px, 34vw, 350px);
+  position: relative;
+  z-index: 2;
+}
+#philosophy .text-area .inner .title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 24px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+#philosophy .text-area .inner .text {
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+#philosophy .img-bottom {
+  max-width: 280px;
+  margin: -60px 0 0 10%;
+}
+
+/*-------------------------------------------
+Service
+-------------------------------------------*/
+#service {
+  margin-bottom: 120px;
+}
+#service .item {
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 5px 25px #ccc;
+  margin-bottom: 40px;
+}
+#service .item.store {
+  flex-direction: row-reverse;
+}
+#service .item .text {
+  width: 44%;
+  padding: 1% 5%;
+}
+#service .item .text .title-ja {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+#service .item .text .title-en {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#service .item .text .description {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#service .item .text .view-more {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+  display: inline-block;
+  padding: 8px 14px;
+  border: 2px solid #1f1f1f;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+#service .item .text .view-more:hover {
+  background-color: #1f1f1f;
+  color: #fff;
+  transform: translateY(-1px);
+}
+#service .item .img {
+  width: 56%;
+  overflow: hidden;
+}
+#service .item.interior .img {
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+}
+#service .item.store .img {
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+}
+#service .item .img img {
+  transition: transform 0.8s ease;
+}
+#service .item:hover .img img {
+  transform: scale(1.1);
+}
+
+/*-------------------------------------------
+Overview
+-------------------------------------------*/
+#overview {
+  margin-bottom: 120px;
+}
+#overview .overview-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+#overview .overview-list dt {
+  width: 200px;
+  border-top: solid 1px #1f1f1f;
+  font-size: 15px;
+  padding: 40px 0;
+}
+#overview .overview-list dt:last-of-type {
+  border-bottom: solid 1px #1f1f1f;
+}
+#overview .overview-list dd {
+  width: calc(100% - 200px);
+  border-top: solid 1px #ccc;
+  font-size: 15px;
+  padding: 40px 0;
+  line-height: 1.8;
+}
+#overview .overview-list dd:last-of-type {
+  border-bottom: solid 1px #ccc;
+}
+
+/*-------------------------------------------
+Access
+-------------------------------------------*/
+#access {
+  margin-bottom: 120px;
+}
+#access .info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+#access .info a {
+  width: 90px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #1f1f1f;
+  font-size: 12px;
+}
+#access .map iframe {
+  width: 100%;
+  height: 400px;
+}
+
+#access .map-offer {
+  margin: 30px auto 0;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, rgba(255, 252, 245, 0.9), rgba(248, 242, 230, 0.9));
+  border: 1px solid rgba(190, 160, 110, 0.28);
+  border-left: 4px solid rgba(184, 134, 11, 0.8);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#access .map-offer .offer-label {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: rgba(160, 118, 20, 0.9);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Zen Old Mincho', serif;
+  line-height: 1.4;
+}
+
+#access .map-offer .offer-body {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(31, 31, 31, 0.88);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  word-spacing: 0.02em;
+  margin: 0;
+}
+
+/*-------------------------------------------
+Recruit
+-------------------------------------------*/
+#recruit {
+  margin-bottom: 140px;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f7f2 60%, #ffffff 100%);
+}
+
+.recruit-banner .recruit-panel {
+  position: relative;
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 52px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(252, 250, 245, 0.95));
+  border: 1px solid rgba(190, 160, 110, 0.18);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+.recruit-banner .recruit-panel::before,
+.recruit-banner .recruit-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.recruit-banner .recruit-panel::before {
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.42), transparent 38%),
+              radial-gradient(circle at 80% 0%, rgba(220, 190, 130, 0.16), transparent 42%);
+  z-index: 0;
+}
+
+.recruit-banner .recruit-panel::after {
+  background: linear-gradient(120deg, transparent 0%, rgba(220, 190, 130, 0.24) 40%, transparent 74%);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.recruit-banner .recruit-head,
+.recruit-banner .recruit-roles,
+.recruit-banner .recruit-flex,
+.recruit-banner .recruit-invite,
+.recruit-banner .recruit-actions {
+  position: relative;
+  z-index: 2;
+}
+
+.recruit-banner .recruit-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  font-weight: 700;
+  color: rgba(160, 118, 20, 0.88);
+  border: 1px solid rgba(190, 160, 110, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 14px;
+}
+
+.recruit-banner .recruit-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: clamp(26px, 3vw, 32px);
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.recruit-banner .recruit-lead {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(31, 31, 31, 0.88);
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.recruit-banner .recruit-roles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.recruit-banner .role-card {
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(190, 160, 110, 0.18);
+  border-left: 4px solid rgba(184, 134, 11, 0.68);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.recruit-banner .role-name {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.recruit-banner .role-hours {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgba(31, 31, 31, 0.9);
+}
+
+.recruit-banner .role-note {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(31, 31, 31, 0.84);
+  margin: 0;
+}
+
+.recruit-banner .recruit-flex {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  color: rgba(31, 31, 31, 0.84);
+}
+
+.recruit-banner .recruit-invite {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 22px;
+  color: rgba(160, 118, 20, 0.95);
+}
+
+.recruit-banner .recruit-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.recruit-banner .recruit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  min-width: 180px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(31, 31, 31, 0.88);
+  text-decoration: none;
+  transition: all 0.28s ease;
+}
+
+.recruit-banner .recruit-btn.primary {
+  background: #1f1f1f;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.recruit-banner .recruit-btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
+}
+
+.recruit-banner .recruit-btn.ghost {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f1f1f;
+  border-color: rgba(190, 160, 110, 0.5);
+}
+
+.recruit-banner .recruit-btn.ghost:hover {
+  background: rgba(190, 160, 110, 0.12);
+}
+
+/*-------------------------------------------
+スマートフォン
+-------------------------------------------*/
+@media screen and (max-width: 767px) {
+  /* セクションタイトル */
+  .section-title {
+    margin-bottom: 10px;
+  }
+  .section-title::before {
+    content: none;
+  }
+
+  /*-------------------------------------------
+  メニュー
+  -------------------------------------------*/
+  .pagelink-list {
+    margin-bottom: 40px;
+  }
+  .pagelink-list li {
+    font-size: 12px;
+  }
+
+  /*-------------------------------------------
+  Philosophy
+  -------------------------------------------*/
+  #philosophy {
+    margin-bottom: 60px;
+    position: static;
+  }
+  #philosophy .img-top {
+    width: 100%;
+    margin-bottom: 20px;
+    position: static;
+  }
+  #philosophy .text-area {
+    width: 100%;
+    padding: 20px;
+    margin: 0 0 20px;
+  }
+  #philosophy .text-area .inner {
+    width: 100%;
+  }
+  #philosophy .img-bottom {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /*-------------------------------------------
+  Service
+  -------------------------------------------*/
+  #service {
+    margin-bottom: 60px;
+  }
+  #service .item {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  #service .item.store {
+    flex-direction: column;
+  }
+  #service .item .text {
+    width: 100%;
+    padding: 20px;
+  }
+  #service .item .text .title-en {
+    font-size: 26px;
+  }
+  #service .item .img {
+    width: 100%;
+  }
+  #service .item.interior .img,
+  #service .item.store .img {
+    clip-path: none;
+  }
+  
+  /*-------------------------------------------
+  Overview
+  -------------------------------------------*/
+  #overview {
+    margin-bottom: 60px;
+  }
+  #overview .overview-list dt {
+    width: 100px;
+    padding: 20px 0;
+  }
+  #overview .overview-list dd {
+    width: calc(100% - 100px);
+    padding: 20px 0;
+  }
+
+  /*-------------------------------------------
+  Access
+  -------------------------------------------*/
+  #access {
+    margin-bottom: 60px;
+  }
+  #access .map-offer {
+    margin: 24px auto 0;
+    padding: 16px 18px;
+    gap: 4px;
+  }
+  #access .map-offer .offer-label {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+  }
+  #access .map-offer .offer-body {
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 500;
+  }
+
+  /*-------------------------------------------
+  Recruit
+  -------------------------------------------*/
+  #recruit {
+    margin-bottom: 80px;
+  }
+  .recruit-banner .recruit-panel {
+    padding: 22px 20px;
+  }
+  .recruit-banner .recruit-roles {
+    grid-template-columns: 1fr;
+  }
+  .recruit-banner .recruit-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .recruit-banner .recruit-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #recruit {
+    padding: 40px 0;
+  }
+}

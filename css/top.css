@@ -1,0 +1,692 @@
+@charset "UTF-8";
+
+/* サイト運営情報 */
+.site-notice {
+  background: linear-gradient(135deg, rgba(40, 35, 30, 0.95), rgba(60, 50, 40, 0.9));
+  border: 1px solid rgba(220, 190, 130, 0.3);
+  border-radius: 6px;
+  padding: 16px 24px;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+  color: rgba(255, 221, 153, 0.9);
+  font-size: 14px;
+  line-height: 1.8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.site-notice p {
+  margin: 0;
+}
+
+/* セクションタイトル */
+.section-title {
+  color: transparent;
+  background: linear-gradient(145deg, 
+              rgba(40, 35, 30, 0.95) 0%, 
+              rgba(60, 50, 40, 0.88) 45%,
+              rgba(80, 65, 50, 0.92) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: 'Zen Old Mincho', serif;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35),
+               0 1px 4px rgba(0, 0, 0, 0.22),
+               0 -1px 2px rgba(255, 255, 255, 0.25);
+  filter: drop-shadow(0 2px 8px rgba(220, 190, 130, 0.25));
+  font-size: clamp(68px, 8vw, 130px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  position: relative;
+}
+
+/* body.top {
+  background: #f8f5ec;
+  position: relative;
+} */
+
+
+/* ボタン */
+.btn {
+  max-width: 120px;
+  background-color: #fff;
+  display: block;
+  border: solid 2px #1f1f1f;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+.btn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  background-color: #1f1f1f;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform ease 0.3s;
+}
+.btn:hover {
+  color: #fff;
+  opacity: 1;
+}
+.btn:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+/* Inview */
+.fadein {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s;
+}
+.fadein.inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+.mainvisual {
+  height: 600px;
+  /* margin-bottom: 120px; */
+  position: relative;
+}
+.mainvisual::before {
+  /* faint background image behind the visual */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;        /* 左半分だけを背景領域にする */
+  height: 100%;
+  inset: 0;
+  background-image: url("../img/top/mainvisual1.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.12; /* adjust to taste (0.03 - 0.12) */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mainvisual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.30); /* white overlay to soften */
+  z-index: 2;
+  pointer-events: none;
+}
+.mainvisual .fade-img img {
+  width: 100%;
+  height: 600px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 80%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 80%, transparent 100%);
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+.mainvisual .fade-img li {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  animation: fade 15s infinite;
+}
+.mainvisual .fade-img li:nth-child(1) {
+  animation-delay: 0s;
+}
+.mainvisual .fade-img li:nth-child(2) {
+  animation-delay: 5s;
+}
+.mainvisual .fade-img li:nth-child(3) {
+  animation-delay: 10s;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.mainvisual .catchphrase {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 500;
+  line-height: 2;
+  letter-spacing: 0.25em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22),
+               0 1px 10px rgba(255, 255, 255, 0.7);
+  color: #1a120b;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  padding: 18px 40px 20px;
+  background: linear-gradient(135deg,
+              rgba(255, 255, 250, 0.88) 0%,
+              rgba(247, 238, 224, 0.82) 100%),
+              linear-gradient(45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(14px) saturate(1.05);
+  border: 1px solid rgba(190, 160, 110, 0.45);
+  border-radius: 6px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18),
+              0 2px 12px rgba(0, 0, 0, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.85),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  position: relative;
+}
+.mainvisual .catchphrase::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(210, 180, 120, 0.35);
+  border-radius: 4px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+.mainvisual .catchphrase::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.8), transparent);
+  box-shadow: 0 0 12px rgba(220, 190, 130, 0.5);
+}
+.mainvisual .catchphrase br {
+  display: block;
+  content: "";
+  margin-top: 0.15em;
+}
+
+/*-------------------------------------------
+banner(between mainvisual and company)
+-------------------------------------------*/
+.between-banner {
+  margin-bottom: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+.between-banner img {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 400px;            /* 高さはデザインに合わせて調整 */
+  object-fit: cover;        /* 切り抜いて表示 */
+  object-position: center;
+  opacity: 0.12; /* adjust to taste (0.03 - 0.12) */
+  z-index: -10;  /* 中央を基準にトリミング */
+}
+
+/*-------------------------------------------
+Company
+-------------------------------------------*/
+.company {
+  /* margin-bottom: 120px; */
+  margin-bottom: 0px;
+}
+.company .section-title {
+  margin: 0 0 -5vw 4vw;
+  position: relative;
+  z-index: 10;
+}
+.company .flex {
+  display: flex;
+  align-items: center;
+}
+.company .flex .img {
+  width: 65%;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 80%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 80%, transparent 100%);
+  position: relative;
+  z-index: 1;
+}
+.company .flex .img img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+.company .flex .text {
+  width: 38%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 244, 236, 0.9) 100%);
+  padding: 6% 6% 6% 6%;
+  margin-left: -8%;
+  position: relative;
+  z-index: 10;
+  border: 1px solid rgba(190, 160, 110, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18),
+              0 2px 10px rgba(0, 0, 0, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+.company .flex .text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.22), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.14), transparent 30%);
+  pointer-events: none;
+  z-index: -1;
+}
+.company .flex .text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.7), transparent);
+  box-shadow: 0 0 12px rgba(220, 190, 130, 0.4);
+  pointer-events: none;
+}
+.company .text .title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.company .text .description {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/*-------------------------------------------
+banner(between company and products)
+-------------------------------------------*/
+.between-banner-2nd {
+  margin-bottom: 120px;
+  width: 100%;
+  overflow: hidden;
+  /* position: relative; for absolutely-positioned image */
+}
+.between-banner-2nd img {
+  display: block;
+  position: absolute;
+  left: 100px;
+  width: 40%;              /* smaller width (was 30%) */
+  max-width: 150px;        /* cap the maximum width */
+  height: 550px;           /* reduce height */
+  max-height: 1000px;
+  object-fit: cover;       /* 切り抜いて表示 */
+  object-position: left center; /* show left side preferentially */
+  opacity: 0.12;           /* adjust to taste (0.03 - 0.12) */
+  z-index: -10;              /* keep behind content */
+  transition: transform 300ms ease;
+  transform-origin: left center; /* 左側を回転中心にする例 */
+  transform: rotate(30deg);
+}
+
+
+/*-------------------------------------------
+Products
+-------------------------------------------*/
+.products {
+  /* margin-bottom: 120px; */
+  margin-bottom: 0px;
+  position: relative;
+}
+.products::after {
+  content: "";
+  width: 70%;
+  height: 300px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(247, 242, 232, 0.9) 100%);
+  display: block;
+  position: absolute;
+  top: 6vw;
+  right: 0;
+  z-index: -10;
+  border: 1px solid rgba(190, 160, 110, 0.28);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7),
+              0 0 14px rgba(220, 190, 130, 0.18);
+  border-radius: 10px;
+}
+.products .text {
+  width: 70%;
+  padding: 0 5%;
+  margin-left: auto;
+}
+.products .text .section-title {
+  margin-bottom: 30px;
+}
+.products .text .description {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+.products .products-list-area {
+  display: flex;
+  margin-bottom: 40px;
+  overflow-x: hidden;
+}
+.products .products-list-area .products-list {
+  display: flex;
+  animation: slide-left 60s infinite linear both;
+}
+.products .products-list-area .products-list li {
+  width: calc(100vw / 3);
+}
+.products .products-list-area .products-list li img {
+  width: 100%;
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.products .btn {
+  margin: 0 auto;
+}
+
+/*-------------------------------------------
+banner(between products and works)
+-------------------------------------------*/
+
+.between-banner-3rd {
+  margin-top: 120px;
+  width: 100%;
+  overflow: hidden;
+  /* position: relative; for absolutely-positioned image */
+}
+.between-banner-3rd img {
+  display: block;
+  position: absolute;
+  right: -30px;
+  width: 40%;            
+  max-width: 1000px;
+  object-fit: cover;       
+  object-position: left center; 
+  opacity: 0.12;         
+  z-index: -10;              
+  transform-origin: right center;
+  transform: rotate(30deg);
+}
+
+/*-------------------------------------------
+OYSTER
+-------------------------------------------*/
+.works {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 120px;
+  position: relative;
+}
+.works::after {
+  content: "";
+  width: 70%;
+  height: 70%;
+  min-height: 420px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(247, 242, 232, 0.9) 100%);
+  display: block;
+  position: absolute;
+  top: 6vw;
+  left: 0;
+  z-index: -10;
+  border: 1px solid rgba(190, 160, 110, 0.28);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7),
+              0 0 14px rgba(220, 190, 130, 0.18);
+  border-radius: 10px;
+}
+.works .text {
+  padding: 0 6% 0 4%;
+}
+.works .text .section-title {
+  margin-bottom: 40px;
+}
+.works .text .description {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.works .text .btn {
+  margin-top: 30px;
+}
+.works .works-list {
+  max-width: 1000px;
+  display: grid;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 80%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 80%, transparent 100%);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  margin-top: 170px;
+}
+.works .works-list li {
+  max-width: 500px;
+}
+
+/*-------------------------------------------
+Faq & Contact
+-------------------------------------------*/
+.faq-contact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5% 80px;
+}
+.faq-contact .item {
+  width: 32%;
+  position: relative;
+}
+.faq-contact .item::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,1));
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.faq-contact .item .title {
+  color: #fff;
+  position: absolute;
+  left: 25px;
+  bottom: 20px;
+}
+.faq-contact .item .title .en {
+  display: block;
+  font-size: 2vw;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: transparent;
+  background: linear-gradient(145deg, 
+              rgba(255, 255, 255, 0.98) 0%, 
+              rgba(240, 235, 225, 0.95) 50%,
+              rgba(255, 255, 255, 0.92) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45),
+               0 2px 8px rgba(0, 0, 0, 0.35),
+               0 -1px 2px rgba(255, 255, 255, 0.15);
+  filter: drop-shadow(0 2px 10px rgba(220, 190, 130, 0.3));
+}
+.faq-contact .item .title .ja {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6),
+               0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.faq-contact .item .arrow {
+  width: clamp(45px, 5vw, 140px);
+  position: absolute;
+  right: 25px;
+  bottom: 20px;
+}
+.faq-contact .item .arrow img {
+  width: 100%;
+}
+
+/*-------------------------------------------
+スマートフォン
+-------------------------------------------*/
+@media screen and (max-width: 767px) {
+  .section-title {
+    font-size: 12vw;
+  }
+
+  /*-------------------------------------------
+  Mainvisual
+  -------------------------------------------*/
+  .mainvisual {
+    height: 400px;
+    margin-bottom: 60px;
+  }
+  .mainvisual .fade-img img {
+    height: 400px;
+  }
+  .mainvisual .fade-img li {
+    width: 100%;
+  }
+  .mainvisual .catchphrase {
+    font-size: clamp(24px, 6vw, 32px);
+    padding: 20px 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+  }
+  .mainvisual .catchphrase::before {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  /* mainvisual下の飾りバナーはSPでは非表示 */
+  .between-banner,
+  .between-banner-2nd,
+  .between-banner-3rd {
+    display: none;
+  }
+
+  /*-------------------------------------------
+  Company
+  -------------------------------------------*/
+  .company {
+    margin-bottom: 60px;
+  }
+  .company .section-title {
+    margin: 0 0 -7vw;
+    text-align: center;
+  }
+  .company .flex {
+    flex-direction: column;
+  }
+  .company .flex .img {
+    width: 100%;
+  }
+  .company .flex .img img {
+    height: 300px;
+  }
+  .company .flex .text {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 20px 0;
+  }
+  .company .flex .text .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .company .flex .text .description {
+    margin-bottom: 20px;
+  }
+
+  /*-------------------------------------------
+  Products
+  -------------------------------------------*/
+  .products {
+    margin-bottom: 60px;
+  }
+  .products::after {
+    width: 100%;
+    height: 250px;
+    top: 10vw;
+  }
+  .products .text {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .products .text .section-title {
+    text-align: center;
+  }
+  .products .text .description {
+    margin-bottom: 20px;
+  }
+  .products .products-list-area {
+    margin-bottom: 20px;
+  }
+  
+  /*-------------------------------------------
+  Works
+  -------------------------------------------*/
+  .works {
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  .works::after {
+    width: 100%;
+    height: 90%;
+    min-height: auto;
+    top: 10vw;
+  }
+  .works .text {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+  .works .text .section-title {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .works .works-list {
+    margin-top: 0;
+  }
+
+  /*-------------------------------------------
+  Faq & Contact
+  -------------------------------------------*/
+  .faq-contact {
+    flex-direction: column;
+    padding: 0 20px 40px;
+  }
+  .faq-contact .item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .faq-contact .item .title .en {
+    font-size: 8vw;
+  }
+}

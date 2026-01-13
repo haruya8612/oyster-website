@@ -1,0 +1,709 @@
+@charset "UTF-8";
+
+.wrapper {
+  max-width: 1180px;
+  padding: 0 28px 120px;
+  margin: 0 auto;
+  position: relative;
+  background: linear-gradient(135deg, rgba(250, 248, 245, 0.98), rgba(252, 250, 248, 0.96));
+  border: 1px solid rgba(190, 160, 110, 0.3);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 30px;
+}
+.wrapper::before {
+  inset: 14px;
+  border: 1px solid rgba(220, 190, 130, 0.18);
+  box-shadow: inset 0 0 40px rgba(220, 190, 130, 0.14);
+}
+.wrapper::after {
+  width: 240px;
+  height: 240px;
+  right: -60px;
+  top: -60px;
+  background: radial-gradient(circle, rgba(240, 200, 140, 0.18), transparent 60%);
+}
+
+/* セクションタイトル */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 auto 70px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 0.12em;
+  color: #2a1a10;
+}
+.section-title span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  position: relative;
+}
+.section-title span::before,
+.section-title span::after {
+  content: "";
+  display: inline-block;
+  width: 54px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.9));
+}
+.section-title span::after {
+  background: linear-gradient(90deg, rgba(220, 190, 130, 0.9), transparent);
+}
+
+/*-------------------------------------------
+おすすめメニュー
+-------------------------------------------*/
+#recommend {
+  margin-bottom: 120px;
+}
+
+.recommend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.recommend-list .item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.recommend-list .item.reverse {
+  flex-direction: row-reverse;
+}
+
+.recommend-list .item .img {
+  width: 45%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.recommend-list .item .img::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 248, 235, 0.6), transparent 70%),
+    radial-gradient(circle at 70% 70%, rgba(245, 235, 220, 0.4), transparent 70%),
+    linear-gradient(135deg, rgba(250, 245, 238, 0.3), rgba(240, 232, 220, 0.2));
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.recommend-list .item .img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.10),
+    0 2px 10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.recommend-list .item .text {
+  width: 55%;
+  background: linear-gradient(135deg, rgba(255, 252, 248, 0.96), rgba(252, 248, 242, 0.94));
+  padding: 42px;
+  border: 1px solid rgba(200, 170, 120, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.3),
+              0 2px 12px rgba(0, 0, 0, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommend-list .item .text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.22), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.14), transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.recommend-list .item .text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.85), transparent);
+  box-shadow: 0 0 16px rgba(220, 190, 130, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.recommend-list .item .text > * {
+  position: relative;
+  z-index: 2;
+}
+
+.recommend-list .item .title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3a2a1a;
+}
+
+.recommend-list .item .title .subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6a5a4a;
+}
+
+.recommend-list .item .description {
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  color: #4a3a2a;
+}
+
+.recommend-list .item .price {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #b8862a;
+  text-align: right;
+}
+
+/*-------------------------------------------
+ご利用シーン
+-------------------------------------------*/
+#scenes {
+  margin-bottom: 120px;
+}
+
+.scene-area {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.scene-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.scene-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.scene-item .scene-img {
+  width: 45%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.scene-item .scene-img::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 248, 235, 0.6), transparent 70%),
+    radial-gradient(circle at 70% 70%, rgba(245, 235, 220, 0.4), transparent 70%),
+    linear-gradient(135deg, rgba(250, 245, 238, 0.3), rgba(240, 232, 220, 0.2));
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.scene-item .scene-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.10),
+    0 2px 10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.scene-item .scene-text {
+  width: 55%;
+  background: linear-gradient(145deg, rgba(255, 252, 248, 0.96), rgba(252, 248, 242, 0.94));
+  padding: 42px;
+  border: 1px solid rgba(200, 170, 120, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12),
+              0 0 16px rgba(220, 190, 130, 0.36);
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-item .scene-text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.22), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.14), transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scene-item .scene-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.85), transparent);
+  box-shadow: 0 0 16px rgba(220, 190, 130, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scene-item .scene-text > * {
+  position: relative;
+  z-index: 2;
+}
+
+.scene-item .scene-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3a2a1a;
+}
+
+.scene-item .scene-description {
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+  color: #4a3a2a;
+}
+
+.scene-item .scene-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scene-item .scene-tags li {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(240, 220, 180, 0.85), rgba(245, 230, 190, 0.75));
+  border: 1px solid rgba(200, 170, 120, 0.6);
+  border-radius: 20px;
+  font-size: 13px;
+  color: #3a2a1a;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/*-------------------------------------------
+ご利用が多い時間帯
+-------------------------------------------*/
+#timing {
+  margin-bottom: 120px;
+}
+
+.timing-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.timing-item {
+  background: linear-gradient(135deg, rgba(255, 252, 248, 0.96) 0%, rgba(252, 248, 242, 0.94) 100%);
+  padding: 42px 32px;
+  border: 1px solid rgba(200, 170, 120, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.3),
+              0 2px 12px rgba(0, 0, 0, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.timing-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.22), transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.campaign-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.9), transparent);
+  box-shadow: 0 0 18px rgba(220, 190, 130, 0.55);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.timing-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+.timing-item .time-badge {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(240, 220, 180, 0.9), rgba(245, 230, 190, 0.8));
+  border: 1px solid rgba(200, 170, 120, 0.6);
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3a2a1a;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+}
+
+.timing-item .timing-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #3a2a1a;
+}
+
+.timing-item .timing-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #4a3a2a;
+}
+
+/*-------------------------------------------
+ キャンペーン＆フェア
+-------------------------------------------*/
+#campaign {
+  margin: 80px auto 140px;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5), transparent 35%),
+              radial-gradient(circle at 80% 0%, rgba(245, 230, 190, 0.4), transparent 40%),
+              linear-gradient(135deg, rgba(248, 242, 235, 0.96), rgba(250, 245, 238, 0.94));
+  border: 1px solid rgba(200, 170, 120, 0.35);
+  border-radius: 16px;
+  padding: 50px 42px 56px;
+  box-shadow: 0 26px 72px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+#campaign::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: -60px;
+  bottom: -60px;
+  background: radial-gradient(circle, rgba(240, 200, 140, 0.2), transparent 60%);
+  pointer-events: none;
+}
+
+.campaign-header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.campaign-header .label {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: #5a4a3a;
+  border: 1px solid rgba(200, 170, 120, 0.6);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.campaign-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 24px;
+  color: #2a1a10;
+  margin: 16px 0 12px;
+  letter-spacing: 0.06em;
+}
+
+.campaign-lead {
+  color: #4a3a2a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.campaign-card {
+  padding: 32px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 250, 245, 0.98), rgba(252, 247, 240, 0.96));
+  border: 1px solid rgba(200, 170, 120, 0.45);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.campaign-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(220, 190, 130, 0.9), transparent);
+  box-shadow: 0 0 16px rgba(220, 190, 130, 0.5);
+}
+
+.campaign-card .card-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(200, 170, 120, 0.6);
+}
+.status-pill.on {
+  background: linear-gradient(135deg, rgba(240, 210, 150, 0.85), rgba(245, 220, 170, 0.75));
+  color: #3a2a1a;
+}
+.status-pill.off {
+  background: rgba(240, 235, 225, 0.6);
+  color: #6a5a4a;
+  border-color: rgba(190, 170, 140, 0.5);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: rgba(245, 235, 220, 0.7);
+  border: 1px solid rgba(200, 170, 120, 0.5);
+  border-radius: 10px;
+  color: #4a3a2a;
+  font-size: 12px;
+}
+
+.card-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2a1a10;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+
+.card-desc {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #4a3a2a;
+  margin-bottom: 18px;
+}
+
+.card-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 16px;
+  margin-bottom: 14px;
+}
+
+.card-meta.ghost {
+  opacity: 0.75;
+}
+
+.meta-block {
+  background: rgba(245, 240, 230, 0.6);
+  border: 1px solid rgba(200, 170, 120, 0.4);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.meta-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #6a5a4a;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-size: 14px;
+  color: #2a1a10;
+  font-weight: 600;
+}
+
+.card-note {
+  font-size: 12px;
+  color: #6a5a4a;
+  line-height: 1.8;
+}
+
+/*-------------------------------------------
+スマートフォン
+-------------------------------------------*/
+@media screen and (max-width: 767px) {
+  .section-title {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  /*-------------------------------------------
+  おすすめメニュー
+  -------------------------------------------*/
+  #recommend {
+    margin-bottom: 80px;
+  }
+
+  .recommend-list {
+    gap: 60px;
+  }
+
+  .recommend-list .item,
+  .recommend-list .item.reverse {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .recommend-list .item .img,
+  .recommend-list .item .text {
+    width: 100%;
+  }
+
+  .recommend-list .item .img img {
+    height: 250px;
+  }
+
+  .recommend-list .item .text {
+    padding: 30px 25px;
+  }
+
+  .recommend-list .item .title {
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
+
+  .recommend-list .item .description {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .recommend-list .item .price {
+    font-size: 18px;
+  }
+
+  /*-------------------------------------------
+  ご利用シーン
+  -------------------------------------------*/
+  #scenes {
+    margin-bottom: 80px;
+  }
+
+  .scene-area {
+    gap: 60px;
+  }
+
+  .scene-item,
+  .scene-item.reverse {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .scene-item .scene-img,
+  .scene-item .scene-text {
+    width: 100%;
+  }
+
+  .scene-item .scene-img img {
+    height: 250px;
+  }
+
+  .scene-item .scene-text {
+    padding: 30px 25px;
+  }
+
+  .scene-item .scene-title {
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
+
+  .scene-item .scene-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .scene-item .scene-tags {
+    gap: 8px;
+  }
+
+  .scene-item .scene-tags li {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  /*-------------------------------------------
+  ご利用が多い時間帯
+  -------------------------------------------*/
+  #timing {
+    margin-bottom: 80px;
+  }
+
+  .timing-area {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .timing-item {
+    padding: 30px 25px;
+  }
+
+  .timing-item .time-badge {
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .timing-item .timing-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .timing-item .timing-description {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="150" viewBox="0 0 800 150">
+  <style>
+    /* 全体に適用されるベーススタイル */
+    .base {
+      fill: #4B3734; /* エスプレッソのようなダークブラウン */
+      font-family: 'Palatino Linotype', 'Book Antiqua', Georgia, serif; /* クラシックなセリフ体（イタリアンな雰囲気） */
+      letter-spacing: 0.08em; /* 文字間隔を少し広げる */
+    }
+
+    /* メインタイトル: OYSTER Bar */
+    .title {
+      font-size: 52px; /* 大きめのサイズ */
+      font-weight: bold;
+    }
+
+    /* サブタイトル: cocono susukino店 */
+    .subtitle {
+      font-family: 'Times New Roman', serif; /* 和字もセリフ体と相性の良いフォントに */
+      font-size: 26px; /* 少し小さめに */
+      font-weight: normal;
+    }
+
+    /* "8TH SEA"の部分 */
+    .small-text {
+      font-size: 30px;
+      font-weight: normal;
+    }
+  </style>
+  
+  <text x="10" y="60" class="base title">
+    <tspan x="0" dy="0"> 8TH SEA OYSTER Bar</tspan>
+  </text>
+  
+  <text x="10" y="110" class="base subtitle">cocono susukino店</text>
+</svg>
