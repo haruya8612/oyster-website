@@ -352,18 +352,43 @@
 .works-list li .text .modal-open {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-width: 140px;
-  background-color: #1f1f1f;
+  gap: 10px;
+  min-width: 180px;
+  background: linear-gradient(135deg, #1f1f1f 0%, #2f2f2f 40%, #3a2a12 100%);
   color: #fff;
   cursor: pointer;
-  font-size: 12px;
-  padding: 10px 18px;
-  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(220, 190, 130, 0.5);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2), 0 0 12px rgba(220, 190, 130, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+.works-list li .text .modal-open::after {
+  content: "Tap to open";
+  position: absolute;
+  right: 18px;
+  bottom: 6px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.08em;
+}
+.works-list li .text .modal-open:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26), 0 0 16px rgba(220, 190, 130, 0.45);
+  background: linear-gradient(135deg, #2a2a2a 0%, #3b3b3b 45%, #4a3618 100%);
+}
+.works-list li .text .modal-open:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2), 0 0 10px rgba(220, 190, 130, 0.35);
 }
 .works-list li .text .modal-open img {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   position: static;
 }
 .works-list li .modal-container {
@@ -406,8 +431,381 @@
   top: 20px;
   right: 20px;
 }
+
+/*-------------------------------------------
+牡蠣の旬テーブル
+-------------------------------------------*/
+.oyster-season-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 250, 255, 0.95));
+  border: 2px solid rgba(160, 180, 200, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.oyster-season-table thead {
+  background: linear-gradient(135deg, rgba(80, 140, 200, 0.15), rgba(120, 170, 220, 0.12));
+  border-bottom: 2px solid rgba(80, 140, 200, 0.3);
+}
+
+.oyster-season-table th {
+  padding: 14px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a3355;
+  text-align: center;
+  letter-spacing: 0.05em;
+  border-right: 1px solid rgba(160, 180, 200, 0.2);
+}
+
+.oyster-season-table th.month-header {
+  padding: 16px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1f2d;
+  background: linear-gradient(135deg, rgba(100, 160, 220, 0.25), rgba(140, 190, 240, 0.18));
+  border-right: 1px solid rgba(80, 140, 200, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.oyster-season-table th:last-child {
+  border-right: none;
+}
+
+.oyster-season-table thead th:first-child {
+  text-align: left;
+  border-right: 2px solid rgba(80, 140, 200, 0.3);
+}
+
+.oyster-season-table tbody tr {
+  border-bottom: 1px solid rgba(160, 180, 200, 0.25);
+  transition: background-color 0.2s ease;
+}
+
+.oyster-season-table tbody tr:nth-child(odd) {
+  background: linear-gradient(135deg, rgba(245, 250, 255, 0.92), rgba(240, 248, 255, 0.88));
+}
+
+.oyster-season-table tbody tr:nth-child(even) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 252, 255, 0.92));
+}
+
+.oyster-season-table tbody tr:hover {
+  background: linear-gradient(135deg, rgba(100, 170, 230, 0.18), rgba(150, 200, 250, 0.14)) !important;
+  box-shadow: inset 4px 0 0 rgba(80, 140, 200, 0.4);
+}
+
+.oyster-season-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.oyster-season-table td {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #2a3445;
+  border-right: 1px solid rgba(160, 180, 200, 0.15);
+  transition: background-color 0.15s ease;
+}
+
+.oyster-season-table tbody tr:hover td {
+  background: linear-gradient(180deg, rgba(100, 170, 230, 0.06), rgba(120, 190, 250, 0.04));
+}
+
+.oyster-season-table td:first-child {
+  text-align: left;
+  font-size: 13px;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(240, 250, 255, 0.6));
+  border-right: 2px solid rgba(80, 140, 200, 0.25);
+  min-width: 140px;
+  font-weight: 500;
+  color: #1a3355;
+}
+
+.oyster-season-table .location-note {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+.oyster-season-table .season-peak {
+  font-size: 18px;
+  font-weight: 700;
+  color: #c41e3a;
+  letter-spacing: 0.08em;
+  background: radial-gradient(circle at center, rgba(196, 30, 58, 0.08), rgba(220, 60, 88, 0.04));
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(196, 30, 58, 0.15);
+}
+
+.oyster-season-table .season {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0ad4e;
+  letter-spacing: 0.08em;
+  background: radial-gradient(circle at center, rgba(240, 173, 78, 0.08), rgba(255, 193, 7, 0.04));
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(240, 173, 78, 0.12);
+}
+
+.table-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(240, 250, 255, 0.95), rgba(245, 250, 255, 0.92));
+  border: 1px solid rgba(160, 180, 200, 0.3);
+  border-radius: 6px;
+  font-size: 13px;
+  color: #2a3445;
+}
+
+.table-legend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media screen and (max-width: 1024px) {
+  .oyster-season-table {
+    font-size: 12px;
+  }
+
+  .oyster-season-table th,
+  .oyster-season-table td {
+    padding: 10px 6px;
+  }
+
+  .oyster-season-table td:first-child {
+    padding: 10px 12px;
+    min-width: 120px;
+  }
+
+  .oyster-season-table .location-note {
+    font-size: 11px;
+  }
+
+  .table-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .oyster-season-table {
+    font-size: 11px;
+    margin: 20px -20px;
+    border-radius: 0;
+    overflow-x: auto;
+  }
+
+  .oyster-season-table th,
+  .oyster-season-table td {
+    padding: 10px 5px;
+  }
+
+  .oyster-season-table td:first-child {
+    padding: 10px 10px;
+    min-width: 100px;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+
+  .oyster-season-table .location-note {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .oyster-season-table .season-peak {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .oyster-season-table .season {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .table-legend {
+    font-size: 12px;
+    gap: 8px;
+    padding: 12px 15px;
+  }
+}
 .works-list li .modal-content .modal-close img {
   max-width: 25px;
+}
+
+/* ワインペアリングセクションの高級感あるスタイル */
+.wine-section {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.02), rgba(30, 20, 10, 0.04)) !important;
+  border-left: 4px solid rgba(184, 134, 11, 0.6) !important;
+  padding: 28px 32px !important;
+  margin: 24px 0 !important;
+  position: relative;
+}
+
+.wine-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.4), transparent);
+}
+
+.wine-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+  font-family: 'Zen Old Mincho', serif;
+}
+
+.wine-section p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+  text-align: justify;
+}
+
+.wine-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ワインプロセス（手順）のスタイル */
+.wine-process {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wine-process li {
+  padding: 16px 0 16px 42px;
+  position: relative;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.15);
+  font-size: 14px;
+  line-height: 1.8;
+  color: #333;
+  letter-spacing: 0.02em;
+}
+
+.wine-process li:last-child {
+  border-bottom: none;
+}
+
+.wine-process li::before {
+  content: counter(item);
+  counter-increment: item;
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.25), rgba(212, 175, 55, 0.15));
+  border: 2px solid rgba(184, 134, 11, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(101, 67, 33, 0.9);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.wine-process {
+  counter-reset: item;
+}
+
+/* ワインキーポイント（重要ポイント）のスタイル */
+.wine-keypoints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.wine-keypoints li {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding-left: 28px;
+}
+
+.wine-keypoints li:last-child {
+  border-bottom: none;
+}
+
+.wine-keypoints li::before {
+  content: "✦";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(184, 134, 11, 0.6);
+  font-size: 12px;
+}
+
+.wine-keypoints li strong {
+  color: #1a1a1a;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ワイン結論セクション */
+.wine-conclusion {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.08), rgba(212, 175, 55, 0.05)) !important;
+  border-left: 5px solid rgba(184, 134, 11, 0.7) !important;
+  padding: 32px 36px !important;
+  margin-top: 32px !important;
+  text-align: center;
+  font-style: italic;
+}
+
+.wine-conclusion h3 {
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: rgba(20, 20, 20, 0.95);
+}
+
+.wine-conclusion p {
+  font-size: 15px;
+  line-height: 2;
+  color: #444;
+  letter-spacing: 0.04em;
 }
 
 /*-------------------------------------------
