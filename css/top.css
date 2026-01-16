@@ -225,6 +225,12 @@ Mainvisual
   content: "";
   margin-top: 0.15em;
 }
+.mainvisual .catchphrase .pc-break {
+  display: block;
+}
+.mainvisual .catchphrase .sp-break {
+  display: none;
+}
 
 /*-------------------------------------------
 banner(between mainvisual and company)
@@ -578,6 +584,12 @@ Faq & Contact
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 400px;
+  }
+  .mainvisual .catchphrase .pc-break {
+    display: none;
+  }
+  .mainvisual .catchphrase .sp-break {
+    display: block;
   }
   .mainvisual .catchphrase::before {
     top: 8px;

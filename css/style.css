@@ -518,6 +518,16 @@ Footer
   .page-header {
     margin-bottom: 40px;
   }
+
+  /* Header logo (SP): slightly larger and nudged for balance */
+  #header {
+    height: 80px;
+  }
+  #header .logo {
+    max-width: 220px;
+    left: -10px;
+    top: 0px;
+  }
   .page-header .img img {
     height: 240px;
   }
@@ -541,6 +551,15 @@ Footer
   /*-------------------------------------------
   Footer
   -------------------------------------------*/
+  /* hamburger icon (SP): make lines white and slightly thicker */
+  #header .hamburger span {
+    background-color: #fff;
+    height: 2px;
+  }
+  #header .hamburger.active span {
+    background-color: #fff;
+  }
+
   #footer {
     flex-direction: column-reverse;
     padding: 60px 20px;
