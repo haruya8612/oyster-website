@@ -225,10 +225,10 @@ Mainvisual
   content: "";
   margin-top: 0.15em;
 }
-.mainvisual .catchphrase .pc-break {
+.mainvisual .catchphrase .pc-copy {
   display: block;
 }
-.mainvisual .catchphrase .sp-break {
+.mainvisual .catchphrase .sp-copy {
   display: none;
 }
 
@@ -585,10 +585,10 @@ Faq & Contact
     width: 90%;
     max-width: 400px;
   }
-  .mainvisual .catchphrase .pc-break {
+  .mainvisual .catchphrase .pc-copy {
     display: none;
   }
-  .mainvisual .catchphrase .sp-break {
+  .mainvisual .catchphrase .sp-copy {
     display: block;
   }
   .mainvisual .catchphrase::before {
