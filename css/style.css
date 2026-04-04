@@ -78,6 +78,33 @@ main {
   font-weight: 400;
 }
 
+/* Banner language switch */
+.banner-lang-switch {
+  position: absolute;
+  top: 46px;
+  right: 24px;
+  z-index: 4;
+}
+.banner-lang-switch a {
+  display: inline-block;
+  min-width: 74px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: rgba(20, 28, 35, 0.78);
+  border: 1px solid rgba(220, 190, 130, 0.75);
+  border-radius: 999px;
+  padding: 8px 16px;
+  backdrop-filter: blur(3px);
+}
+.banner-lang-switch a:hover {
+  opacity: 1;
+  background: rgba(220, 190, 130, 0.95);
+  color: #1f1f1f;
+}
+
 /* 下層ページのページヘッダー下テキスト */
 .head-text {
   font-size: 17px;
@@ -548,6 +575,15 @@ Footer
   }
   .page-header .page-title-area .page-title .ja {
     font-size: 12px;
+  }
+  .banner-lang-switch {
+    top: 32px;
+    right: 12px;
+  }
+  .banner-lang-switch a {
+    min-width: 64px;
+    font-size: 11px;
+    padding: 7px 12px;
   }
 
   /* 下層ページのページヘッダー下テキスト */
